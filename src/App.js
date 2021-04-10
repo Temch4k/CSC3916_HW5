@@ -8,7 +8,6 @@ import {HashRouter, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './stores/store';
 
-
 function App() {
   return (
     <div className="App">

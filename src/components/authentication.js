@@ -6,8 +6,8 @@ import { logoutUser } from '../actions/authActions';
 
 class Authentication extends Component {
 
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
 
         this.state = {
             toggleReg: false

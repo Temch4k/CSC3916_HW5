@@ -24,7 +24,7 @@ export function submitLogin(data) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data),
-            mode: 'cors'
+            mode: "cors"
         }).then((response) => {
             if (!response.ok) {
                 throw Error(response.statusText);
@@ -65,6 +65,6 @@ export function logoutUser() {
     return dispatch => {
         localStorage.removeItem('username');
         localStorage.removeItem('token');
-        dispatch(logout());
+        dispatch(logout())
     }
 }
