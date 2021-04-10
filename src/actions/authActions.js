@@ -65,6 +65,6 @@ export function logoutUser() {
     return dispatch => {
         localStorage.removeItem('username');
         localStorage.removeItem('token');
-        dispatch(logout())
+        dispatch(logout());
     }
 }

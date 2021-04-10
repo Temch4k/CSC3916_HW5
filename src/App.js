@@ -8,6 +8,9 @@ import {HashRouter, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './stores/store';
 
+var app = express();
+app.use(cors());
+
 function App() {
   return (
     <div className="App">
