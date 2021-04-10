@@ -7,6 +7,8 @@ import Authentication from './components/authentication';
 import {HashRouter, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './stores/store';
+var express = require('express');
+
 
 var app = express();
 app.use(cors());
