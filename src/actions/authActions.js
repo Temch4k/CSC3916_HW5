@@ -30,6 +30,7 @@ export function submitLogin(data) {
                 throw Error(response.statusText);
             }
             return response.json()
+
         }).then((res) => {
             localStorage.setItem('username', data.username);
             localStorage.setItem('token', res.token);

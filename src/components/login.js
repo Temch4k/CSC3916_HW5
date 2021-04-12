@@ -29,8 +29,7 @@ class Login extends Component {
 
     login() {
         const {dispatch} = this.props;
-        let string = dispatch(submitLogin(this.state.details));
-        console.log(string+"sdf");
+        dispatch(submitLogin(this.state.details));
     }
 
     render(){
