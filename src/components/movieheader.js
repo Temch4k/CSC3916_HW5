@@ -14,7 +14,7 @@ class MovieHeader extends Component {
             <div>
                 <Navbar expand="lg" bg="dark" variant="dark">
                     <Navbar.Brand>
-                        Movie App
+                        Artsiom's Homework 5
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
