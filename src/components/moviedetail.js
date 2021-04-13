@@ -1,9 +1,63 @@
 import React, { Component } from 'react';
 import { fetchMovie } from "../actions/movieActions";
 import {connect} from 'react-redux';
-import {Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import {Card, ListGroup, ListGroupItem, Form, Button} from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs'
 import { Image } from 'react-bootstrap';
+import runtimeEnv from '@mars/heroku-js-runtime-env'
+
+
+// need to finish
+class Review extends Component {
+    constructor(props) {
+        super(props);
+        this.updateDetails = this.updateDetails.bind(this);
+        this.submitReivew = this.review.bind(this);
+        this.state = {
+            details:{
+                rating: 3,
+                comment: ''
+            }
+        };
+    }
+
+    updateDetails(event){
+        let updateDetails = Object.assign({}, this.state.details);
+
+        updateDetails[event.target.id] = event.target.value;
+        this.setState({
+            details: updateDetails
+        });
+    }
+
+    // work in progress
+    review() {
+        const env = runtimeEnv();
+        let rev = {
+            'movieid': this.props.movieId,
+            'comment': this.state.details.comment,
+            'rating': this.state.details.rating
+        };
+    }
+
+    render(){
+        return (
+            <Form className='form-horizontal'>
+                <Form.Group controlId="rating">
+                    <Form.Label>Moving rating out of 5</Form.Label>
+                    <Form.Control onChange={this.updateDetails} value={this.state.details.rating} type="text" placeholder="Enter your moving rating" />
+                </Form.Group>
+
+                <Form.Group controlId="comment">
+                    <Form.Label>Your comment about the movie</Form.Label>
+                    <Form.Control onChange={this.updateDetails} value={this.state.details.comment}  type="text" placeholder="Comment" />
+                </Form.Group>
+                <Button onClick={this.review}>Submit Review</Button>
+            </Form>
+        )
+    }
+}
+
 
 class MovieDetail extends Component {
 
@@ -47,7 +101,6 @@ class MovieDetail extends Component {
                 </Card>
             )
         }
-
         return (
             <DetailInfo />
         )
