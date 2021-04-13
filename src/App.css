@@ -46,3 +46,7 @@
     transform: rotate(360deg);
   }
 }
+
+h3, h2, p{
+  color:palevioletred;
+}
