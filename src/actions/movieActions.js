@@ -32,7 +32,7 @@ export function setMovie(movie) {
 export function fetchMovie(movieId) {
     const env = runtimeEnv();
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/moviecollection/${movieId}?reviews=true`, {
+        return fetch(`${env.REACT_APP_API_URL}/moviecollection/${movieId}?review=true`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -46,7 +46,7 @@ export function fetchMovie(movieId) {
             }
             return response.json()
         }).then((res) => {
-            dispatch(movieFetched(res));
+            dispatch(moviesFetched(res.result));
         }).catch((e) => console.log(e));
     }
 }
@@ -54,7 +54,7 @@ export function fetchMovie(movieId) {
 export function fetchMovies() {
     const env = runtimeEnv();
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/moviecollection?reviews=true`, {
+        return fetch(`${env.REACT_APP_API_URL}/moviecollection?review=true`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -68,7 +68,7 @@ export function fetchMovies() {
             }
             return response.json()
         }).then((res) => {
-            dispatch(moviesFetched(res));
+            dispatch(moviesFetched(res.result));
         }).catch((e) => console.log(e));
     }
 }
